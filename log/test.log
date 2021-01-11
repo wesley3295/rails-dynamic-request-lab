@@ -942,3 +942,371 @@ Started GET "/students/1" for 127.0.0.1 at 2018-01-12 11:54:37 -0500
   [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2018-01-12 16:54:37.186553"], ["updated_at", "2018-01-12 16:54:37.186553"]]
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (5.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (1)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-01-11 21:34:34.627135"], ["updated_at", "2021-01-11 21:34:34.627135"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (6.6ms)[0m  [1m[31mDELETE FROM "students";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'students';[0m
+  [1m[35m (5.4ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/students" for 127.0.0.1 at 2021-01-11 14:34:34 -0700
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 161ms (Views: 157.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:34:34.858275"], ["updated_at", "2021-01-11 21:34:34.858275"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Lindsey"], ["last_name", "Stirling"], ["created_at", "2021-01-11 21:34:34.858975"], ["updated_at", "2021-01-11 21:34:34.858975"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students" for 127.0.0.1 at 2021-01-11 14:34:34 -0700
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:34:34.863334"], ["updated_at", "2021-01-11 21:34:34.863334"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:34:34 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:34:34.868097"], ["updated_at", "2021-01-11 21:34:34.868097"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:34:34 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:34:34.877159"], ["updated_at", "2021-01-11 21:34:34.877159"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:34:34 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:34:34.881437"], ["updated_at", "2021-01-11 21:34:34.881437"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:34:34.882548"], ["updated_at", "2021-01-11 21:34:34.882548"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (7.5ms)[0m  [1m[31mDELETE FROM "students";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'students';[0m
+  [1m[35m (6.6ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/students" for 127.0.0.1 at 2021-01-11 14:35:11 -0700
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 84ms (Views: 80.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:35:11.366762"], ["updated_at", "2021-01-11 21:35:11.366762"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Lindsey"], ["last_name", "Stirling"], ["created_at", "2021-01-11 21:35:11.367502"], ["updated_at", "2021-01-11 21:35:11.367502"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students" for 127.0.0.1 at 2021-01-11 14:35:11 -0700
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:35:11.371972"], ["updated_at", "2021-01-11 21:35:11.371972"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:35:11 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:35:11.376526"], ["updated_at", "2021-01-11 21:35:11.376526"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:35:11 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:35:11.380743"], ["updated_at", "2021-01-11 21:35:11.380743"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:35:11 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:35:11.385358"], ["updated_at", "2021-01-11 21:35:11.385358"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:35:11.386765"], ["updated_at", "2021-01-11 21:35:11.386765"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.6ms)[0m  [1m[31mDELETE FROM "students";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'students';[0m
+  [1m[35m (6.4ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/students" for 127.0.0.1 at 2021-01-11 14:45:13 -0700
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 101ms (Views: 97.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:45:13.874935"], ["updated_at", "2021-01-11 21:45:13.874935"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Lindsey"], ["last_name", "Stirling"], ["created_at", "2021-01-11 21:45:13.875760"], ["updated_at", "2021-01-11 21:45:13.875760"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students" for 127.0.0.1 at 2021-01-11 14:45:13 -0700
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:45:13.880441"], ["updated_at", "2021-01-11 21:45:13.880441"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:45:13 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:45:13.885705"], ["updated_at", "2021-01-11 21:45:13.885705"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:45:13 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:45:13.889785"], ["updated_at", "2021-01-11 21:45:13.889785"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:45:13 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:45:13.893945"], ["updated_at", "2021-01-11 21:45:13.893945"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:45:13.895049"], ["updated_at", "2021-01-11 21:45:13.895049"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (10.8ms)[0m  [1m[31mDELETE FROM "students";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'students';[0m
+  [1m[35m (6.2ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/students" for 127.0.0.1 at 2021-01-11 14:46:31 -0700
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 69ms (Views: 65.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:46:31.657567"], ["updated_at", "2021-01-11 21:46:31.657567"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Lindsey"], ["last_name", "Stirling"], ["created_at", "2021-01-11 21:46:31.658283"], ["updated_at", "2021-01-11 21:46:31.658283"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students" for 127.0.0.1 at 2021-01-11 14:46:31 -0700
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:46:31.662625"], ["updated_at", "2021-01-11 21:46:31.662625"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:46:31 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:46:31.666924"], ["updated_at", "2021-01-11 21:46:31.666924"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:46:31 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:46:31.670804"], ["updated_at", "2021-01-11 21:46:31.670804"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/students/1" for 127.0.0.1 at 2021-01-11 14:46:31 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:46:31.674745"], ["updated_at", "2021-01-11 21:46:31.674745"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Daenerys"], ["last_name", "Targaryen"], ["created_at", "2021-01-11 21:46:31.675825"], ["updated_at", "2021-01-11 21:46:31.675825"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
